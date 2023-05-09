@@ -4,26 +4,46 @@
     <title>Coding Quiz</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets\style.css" />
   </head>
+
+
   <body>
 
-
+    <!--Heading and general directions-->
     <header>
-      <div class= "large-font">Coding Quiz</div>
-      <button class="start-button">Start</button>
+      <h1>Coding Quizlet</h1>
+      <h3>Get ready! You're being timed! A correct answer will increase your timer, but an incorrect one will decrease it.</h3>
     </header>
 
 <main>
-    
 
+  <pre>
+  </pre>
+<button id="start">Start</button>
+
+<div id="wrapper">
+    <!-- Div timer -->
+  <div id="currentTime"></div>
+    <!-- quiz content -->
+  <div id="questionsDiv">
+
+    <ul id="choicesUl"></ul>
+    
 <div id="quiz"></div>
+
 <button id="submit">Get Results</button>
+
 <div id="results"></div>
 
+<pre>
+  
+</pre>
+
+<a href="HighScores.html">View Highscores</a>
+
 
 </main>
-</main>
-<script src="assets/js/script.js"></script>
+<script src="assets\script.js"></script>
 </body>
 </html>
