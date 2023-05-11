@@ -1,105 +1,110 @@
-//HTML variables
+// HTML variables
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 
-//functions skeleton from https://simplestepscode.com/javascript-quiz-tutorial/
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
-
-	function showQuestions(questions, quizContainer){
-		//array of questions
+// Define questions array
 var questions = [
-	{
-		question: "Which HTML element holds Javascript?",
-		answers: {
-			a: "<styles>",
-			b: "<script>",
-			c: "<header>",
-		},
-
-		correctAnswer: 'a'
-	},
-
-	{
-		question: "How do you add a comment in JavaScript?",
-		answers: {
-			a: "//add comment",
-			b: "add comment",
-			c: "!add comment",
-		},
-
-		correctAnswer: 'a'
-	},
-
-	{
-
-	question: "Java and JavaScript are the same",
-		answers: {
-			a: "True",
-			b: "False",
-		
-		},
-
-		correctAnswer: 'b',
+  {
+    question: "Which HTML element holds JavaScript?",
+    answers: {
+      a: "<styles>",
+      b: "<script>",
+      c: "<header>"
     },
-
-	{
-		question: "Which event occurs when the user clicks on an HTML element?",
-		answers: {
-			a: "onchange",
-			b: "onpush",
-			c: "onclick",
-		},
-
-		correctAnswer: 'c',
-	},
-
-
+    correctAnswer: 'b'
+  },
+  {
+    question: "How do you add a comment in JavaScript?",
+    answers: {
+      a: "//add comment",
+      b: "add comment",
+      c: "!add comment"
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: "Java and JavaScript are the same",
+    answers: {
+      a: "True",
+      b: "False"
+    },
+    correctAnswer: 'b'
+  },
+  {
+    question: "Which event occurs when the user clicks on an HTML element?",
+    answers: {
+      a: "onchange",
+      b: "onpush",
+      c: "onclick"
+    },
+    correctAnswer: 'c'
+  }
 ];
-var output = [];
-	var answers;
 
-	// for each question...
-	for(var i=0; i<questions.length; i++){
-		
-		// first reset the list of answers
-		answers = [];
+function generateQuiz(questions, quizContainer) {
+  var output = [];
+  var answers;
 
-		// for each available answer to this question...
-		for(letter in questions[i].answers){
+  // for each question...
+  for (var i = 0; i < questions.length; i++) {
 
-			// ...add an html radio button
-			answers.push(
-				'<label>'
-					+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
-					+ letter + ': '
-					+ questions[i].answers[letter]
-				+ '</label>'
-			);
-		}
+    // first reset the list of answers
+    answers = [];
 
-		// add this question and its answers to the output
-		output.push(
-			'<div class="question">' + questions[i].question + '</div>'
-			+ '<div class="answers">' + answers.join('') + '</div>'
-		);
-	}
+    // for each available answer to this question...
+    for (letter in questions[i].answers) {
 
-	// finally combine our output list into one string of html and put it on the page
-	quizContainer.innerHTML = output.join('');
+      // ...add an HTML radio button
+      answers.push(
+        '<label>'
+        + '<input type="radio" name="question' + i + '" value="' + letter + '">'
+        + letter + ': '
+        + questions[i].answers[letter]
+        + '</label>'
+      );
+    }
+
+    output.push(
+      '<div class="question">' + questions[i].question + '</div>'
+      + '<div class="answers">' + answers.join('') + '</div>'
+    );
+  }
+
+  // Combine the output list into one string of HTML and put it on the page
+  quizContainer.innerHTML = output.join('');
 }
-	}
 
-	function showResults(questions, quizContainer, resultsContainer){
-		
-	// show questions
-	showQuestions(questions, quizContainer);
+function showResults(questions, quizContainer, resultsContainer) {
+  // Gather user's answers
+  var userAnswers = [];
 
-	// get results! 
-	submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
-	}
-	showQuestions(questions, quizContainer);
+  var quizInputs = quizContainer.getElementsByTagName('input');
+  for (var i = 0; i < quizInputs.length; i++) {
+    if (quizInputs[i].checked) {
+      userAnswers.push(quizInputs[i].value);
+    }
+  }
 
-	}
+  // Calculate score
+  var score = 0;
+  for (var i = 0; i < questions.length; i++) {
+    if (userAnswers[i] === questions[i].correctAnswer) {
+      score++;
+    }
+  }
+
+  // Display the results
+  resultsContainer.innerHTML = 'You scored ' + score + ' out of ' + questions.length;
+}
+
+// Call the generateQuiz function to display the quiz
+generateQuiz(questions, quizContainer);
+
+// Attach the showResults function to the submit button click event
+submitButton.addEventListener('click', function() {
+  showResults(questions, quizContainer, resultsContainer);
+});
+
+
 
