@@ -6,23 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="assets\style.css" />
   </head>
+
+
   <body>
 
-
+    <!--Heading and general directions-->
     <header>
-      <h1>Coding Quiz</h1>
-      <button id="start">Start</button>
+      <h1>Coding Quizlet</h1>
+      <h3>Get ready! You're being timed! A correct answer will increase your timer, but an incorrect one will decrease it.</h3>
     </header>
 
 <main>
-    
 
+ <!--This is some space -->
+  <pre>
+  </pre>
+<button id="start">Start</button>
+
+    <!-- Div timer -->
+  <div id="currentTime"></div>
+    <!-- quiz content -->
+  <div id="questionsDiv">
+
+    <ul id="choicesUl"></ul>
+    
 <div id="quiz"></div>
+
 <button id="submit">Get Results</button>
+
 <div id="results"></div>
 
+ <!-- This is some more space -->
 
-</main>
+<pre>
+  
+</pre>
+<!--storage access link for high scores-->
+<a href="HighScores.html">View High Scores</a>
+
+
 </main>
 <script src="assets\script.js"></script>
 </body>
