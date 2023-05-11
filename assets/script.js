@@ -117,25 +117,6 @@ function showResults(questions, quizContainer, resultsContainer) {
     }
   }
 
-  function storeHighScores(event) {
-    event.preventDefault();
-
-    // stop function is initial is blank
-    if (initialInput.value === "") {
-        alert("Please enter your handle");
-        return;
-    
-	
-	var savedHighScores = localStorage.getItem("high scores");
-    var scoresArray;
-    }
-
-	if (savedHighScores === null) {
-		scoresArray = [];
-	  } else {
-		scoresArray = JSON.parse(savedHighScores);
-	  }
-}
 
   // Display the results
   resultsContainer.innerHTML = 'You scored ' + score + ' out of ' + questions.length;
