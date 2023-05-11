@@ -16,7 +16,7 @@ var questions = [
       "b: <script>",
       "c: <header>"
 	],
-    correctAnswer: ''
+    correctAnswer: 'b'
   },
   {
     question: "How do you add a comment in JavaScript?",
@@ -51,13 +51,9 @@ var totalTime = 200;
 function newQuiz() {
     questionIndex = 0;
     totalTime = 150;
-    timeLeft.textContent = totalTime;
+    timer.textContent = totalTime;
     initialInput.textContent = "";
 
-    startDiv.style.display = "none";
-    questionDiv.style.display = "block";
-    timer.style.display = "block";
-    timesUp.style.display = "none";
 
     var startTimer = setInterval(function() {
         totalTime--;
@@ -128,15 +124,18 @@ function showResults(questions, quizContainer, resultsContainer) {
     if (initialInput.value === "") {
         alert("Please enter your handle");
         return;
-    } 
+    
+	
 	var savedHighScores = localStorage.getItem("high scores");
     var scoresArray;
-
-    if (savedHighScores === null) {
-        scoresArray = [];
-    } else {
-        scoresArray = JSON.parse(savedHighScores)
     }
+
+	if (savedHighScores === null) {
+		scoresArray = [];
+	  } else {
+		scoresArray = JSON.parse(savedHighScores);
+	  }
+}
 
   // Display the results
   resultsContainer.innerHTML = 'You scored ' + score + ' out of ' + questions.length;
@@ -150,6 +149,10 @@ generateQuiz(questions, quizContainer);
 // Attach the showResults function to the submit button click event.
 submitButton.addEventListener('click', function() {
   showResults(questions, quizContainer, resultsContainer);
+
+// Attach the storeHighScores function to the submit button click event.
+submitButton.addEventListener('click', storeHighScores);
+
   
 });
 
