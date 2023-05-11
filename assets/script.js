@@ -1,4 +1,7 @@
-
+//HTML variables
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
 
 //functions skeleton from https://simplestepscode.com/javascript-quiz-tutorial/
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
@@ -88,14 +91,15 @@ var output = [];
 	}
 
 	function showResults(questions, quizContainer, resultsContainer){
-		// code will go here
-	}
-
-	// show the questions
+		
+	// show questions
 	showQuestions(questions, quizContainer);
 
-	// when user clicks submit, show results
+	// get results! 
 	submitButton.onclick = function(){
 		showResults(questions, quizContainer, resultsContainer);
 	}
 	showQuestions(questions, quizContainer);
+
+	}
+
