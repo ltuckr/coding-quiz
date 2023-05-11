@@ -47,7 +47,7 @@ var questions = [
 ];
 
 //  start button = timer starts
-var totalTime = 151;
+var totalTime = 200;
 function newQuiz() {
     questionIndex = 0;
     totalTime = 150;
@@ -103,7 +103,7 @@ function generateQuiz(questions, quizContainer) {
   }
 
 function showResults(questions, quizContainer, resultsContainer) {
-  // Gather user's answers
+  // user's answers
   var userAnswers = [];
 
   var quizInputs = quizContainer.getElementsByTagName('input');
