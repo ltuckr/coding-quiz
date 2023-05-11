@@ -1,7 +1,11 @@
-// HTML variables
+// various elements in quiz
 var quizContainer = document.getElementById('quiz');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
+var timer = document.getElementById("timer");
+var startDiv = document.getElementById("start");
+var viewHighScore = document.getElementById("viewHighScore");
+var listOfHighScores = document.getElementById("listOfHighScores");
 
 // Define questions array
 var questions = [
@@ -12,7 +16,7 @@ var questions = [
       "b: <script>",
       "c: <header>"
 	],
-    correctAnswer: 'b'
+    correctAnswer: ''
   },
   {
     question: "How do you add a comment in JavaScript?",
@@ -42,7 +46,32 @@ var questions = [
   },
 ];
 
+//  start button = timer starts
+var totalTime = 151;
+function newQuiz() {
+    questionIndex = 0;
+    totalTime = 150;
+    timeLeft.textContent = totalTime;
+    initialInput.textContent = "";
 
+    startDiv.style.display = "none";
+    questionDiv.style.display = "block";
+    timer.style.display = "block";
+    timesUp.style.display = "none";
+
+    var startTimer = setInterval(function() {
+        totalTime--;
+        timeLeft.textContent = totalTime;
+        if(totalTime <= 0) {
+            clearInterval(startTimer);
+            if (questionIndex < questions.length - 1) {
+                gameOver();
+            }
+        }
+    },1000);
+
+    showQuiz();
+};
 
 function generateQuiz(questions, quizContainer) {
 	var output = [];
@@ -91,6 +120,23 @@ function showResults(questions, quizContainer, resultsContainer) {
       score++;
     }
   }
+
+  function storeHighScores(event) {
+    event.preventDefault();
+
+    // stop function is initial is blank
+    if (initialInput.value === "") {
+        alert("Please enter your handle");
+        return;
+    } 
+	var savedHighScores = localStorage.getItem("high scores");
+    var scoresArray;
+
+    if (savedHighScores === null) {
+        scoresArray = [];
+    } else {
+        scoresArray = JSON.parse(savedHighScores)
+    }
 
   // Display the results
   resultsContainer.innerHTML = 'You scored ' + score + ' out of ' + questions.length;
