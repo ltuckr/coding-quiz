@@ -43,37 +43,33 @@ var questions = [
 ];
 
 function generateQuiz(questions, quizContainer) {
-  var output = [];
-  var answers;
-
-  // for each question...
-  for (var i = 0; i < questions.length; i++) {
-
-    // first reset the list of answers
-    answers = [];
-
-    // for each available answer to this question...
-    for (letter in questions[i].answers) {
-
-      // ...add an HTML radio button
-      answers.push(
-        '<label>'
-        + '<input type="radio" name="question' + i + '" value="' + letter + '">'
-        + letter + ': '
-        + questions[i].answers[letter]
-        + '</label>'
-      );
-    }
-
-    output.push(
-      '<div class="question">' + questions[i].question + '</div>'
-      + '<div class="answers">' + answers.join('') + '</div>'
-    );
+	var output = [];
+  
+	// for each question...
+	for (var i = 0; i < questions.length; i++) {
+	  var question = questions[i];
+	  var answers = [];
+  
+	  // for each available answer to this question...
+	  for (var letter in question.answers) {
+		answers.push(
+		  '<label>'
+		  + '<input type="radio" name="question' + i + '" value="' + letter + '">'
+		  + letter + ': '
+		  + question.answers[letter]
+		  + '</label>'
+		);
+	  }
+  
+	  output.push(
+		'<div class="question">' + question.question + '</div>'
+		+ '<div class="answers">' + answers.join('') + '</div>'
+	  );
+	}
+  
+	// Combine the output list into one string of HTML and put it on the page
+	quizContainer.innerHTML = output.join('');
   }
-
-  // Combine the output list into one string of HTML and put it on the page
-  quizContainer.innerHTML = output.join('');
-}
 
 function showResults(questions, quizContainer, resultsContainer) {
   // Gather user's answers
