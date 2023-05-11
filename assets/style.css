@@ -1,6 +1,6 @@
 body{
 	font-size: 20px;
-	font-family: sans-serif;
+	font-family: monospace;
 	color: #333; 
 	background-color: azure;  
 }
@@ -16,7 +16,7 @@ body{
 }
 
 #submit{
-	font-family: sans-serif;
+	font-family: monospace;
 	font-size: 20px;
 	background-color:turquoise;
 	color: black;
@@ -31,10 +31,9 @@ body{
 }
 
 #start{
-	font-family: sans-serif;
+	font-family: monospace;
 	font-size: 20px;
 	background-color: turquoise;
-	color:black;
 	border: 0px;
 	border-radius: 3px;
 	padding: 20px;
