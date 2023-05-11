@@ -1,4 +1,4 @@
-//start with question content array
+//array of questions
 var questions = [
 	{
 		question: "Which HTML element holds Javascript?",
@@ -47,3 +47,23 @@ var questions = [
 
 
 ];
+
+//functions skeleton from https://simplestepscode.com/javascript-quiz-tutorial/
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+	function showQuestions(questions, quizContainer){
+		// code will go here
+	}
+
+	function showResults(questions, quizContainer, resultsContainer){
+		// code will go here
+	}
+
+	// show the questions
+	showQuestions(questions, quizContainer);
+
+	// when user clicks submit, show results
+	submitButton.onclick = function(){
+		showResults(questions, quizContainer, resultsContainer);
+	}
+}
