@@ -145,9 +145,12 @@ function showResults(questions, quizContainer, resultsContainer) {
 // Call the generateQuiz function to display the quiz
 generateQuiz(questions, quizContainer);
 
-// Attach the showResults function to the submit button click event
+// event listeners
+
+// Attach the showResults function to the submit button click event.
 submitButton.addEventListener('click', function() {
   showResults(questions, quizContainer, resultsContainer);
+  
 });
 
 
