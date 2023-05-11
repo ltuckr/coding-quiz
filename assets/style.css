@@ -1,0 +1,46 @@
+body{
+	font-size: 20px;
+	font-family: monospace;
+	color: #333; 
+	background-color: azure;  
+}
+.question{
+	font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+}
+
+#currentTime {
+	float: right;
+}
+
+#submit{
+	font-family: monospace;
+	font-size: 20px;
+	background-color:turquoise;
+	color: black;
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+#submit:hover{
+	background-color: paleturquoise;
+}
+
+#start{
+	font-family: monospace;
+	font-size: 20px;
+	background-color: turquoise;
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+#start:hover{
+	background-color: paleturquoise;
+}
