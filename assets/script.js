@@ -48,6 +48,8 @@ var questions = [
 ];
 
 //  start button = timer starts
+startDiv.addEventListener('click', newQuiz); //add event listener to start button
+
 var totalTime = 200;
 function newQuiz() {
     questionIndex = 0;
