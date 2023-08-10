@@ -6,7 +6,9 @@ var timer = document.getElementById("timer");
 var startDiv = document.getElementById("start");
 var viewHighScore = document.getElementById("viewHighScore");
 var listOfHighScores = document.getElementById("listOfHighScores");
+
 var questionIndex = 0; //added to track of which question we are on
+var totalTime = 200;
 
 // Define questions array
 var questions = [
@@ -50,7 +52,6 @@ var questions = [
 //  start button = timer starts
 startDiv.addEventListener('click', newQuiz); //add event listener to start button
 
-var totalTime = 200;
 
 
 function newQuiz() {
