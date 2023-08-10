@@ -53,10 +53,10 @@ var questions = [
 startDiv.addEventListener('click', newQuiz); //add event listener to start button
 
 
-
+//initialize new quiz
 function newQuiz() {
-  questionIndex = 0; // Reset question index
-  totalTime = 150; // Reset the timer
+  questionIndex = 0; 
+  totalTime = 150; 
   timer.textContent = totalTime;
   resultsContainer.innerHTML = ''; // Clear previous results
 
@@ -104,6 +104,9 @@ function generateQuiz(questions, quizContainer) {
 		'<div class="question">' + question.question + '</div>'
 		+ '<div class="answers">' + answers.join('') + '</div>'
 	  );
+
+  // Add a 'next' button to move to the next question
+  output.push('<button id="nextButton">Next</button>');
 	}
   
 	// Combine the output list into one string of HTML and put it on the page
