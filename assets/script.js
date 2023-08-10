@@ -6,6 +6,7 @@ var timer = document.getElementById("timer");
 var startDiv = document.getElementById("start");
 var viewHighScore = document.getElementById("viewHighScore");
 var listOfHighScores = document.getElementById("listOfHighScores");
+var questionIndex = 0; //added to track of which question we are on
 
 // Define questions array
 var questions = [
