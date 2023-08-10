@@ -51,26 +51,34 @@ var questions = [
 startDiv.addEventListener('click', newQuiz); //add event listener to start button
 
 var totalTime = 200;
+
+
 function newQuiz() {
-    questionIndex = 0;
-    totalTime = 150;
+  questionIndex = 0; // Reset question index
+  totalTime = 150; // Reset the timer
+  timer.textContent = totalTime;
+  resultsContainer.innerHTML = ''; // Clear previous results
+
+  var startTimer = setInterval(function() {
+    totalTime--;
     timer.textContent = totalTime;
-    initialInput.textContent = "";
+    if (totalTime <= 0) {
+      clearInterval(startTimer);
+      gameOver();
+    }
+  }, 1000);
 
-
-    var startTimer = setInterval(function() {
-        totalTime--;
-        timeLeft.textContent = totalTime;
-        if(totalTime <= 0) {
-            clearInterval(startTimer);
-            if (questionIndex < questions.length - 1) {
-                gameOver();
-            }
-        }
-    },1000);
-
-    showQuiz();
-};
+  showQuiz();
+}
+//corrected function name
+function showQuiz() {
+  if (questionIndex < questions.length) {
+    generateQuiz(questions, quizContainer, questionIndex);
+  } else {
+    clearInterval(startTimer); // Clear the timer
+    showResults(questions, quizContainer, resultsContainer);
+  }
+}
 
 function generateQuiz(questions, quizContainer) {
 	var output = [];
