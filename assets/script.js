@@ -113,6 +113,14 @@ function generateQuiz(questions, quizContainer) {
 	quizContainer.innerHTML = output.join('');
   }
 
+  
+  // Attach an event listener to the 'next' button
+  var nextButton = document.getElementById('nextButton');
+  nextButton.addEventListener('click', function() {
+    questionIndex++;
+    showQuiz();
+  });
+
 function showResults(questions, quizContainer, resultsContainer) {
   // user's answers
   var userAnswers = [];
