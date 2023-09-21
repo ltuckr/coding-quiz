@@ -1,11 +1,12 @@
 var startButton = document.getElementById("start"); //changed to "Start" button
 var QuizContainer = document.getElementById("quiz-container");
 var questionElement = document.getElementById("question");
-var optionsElement = document.getElementById("choicesUl"); // Updated to match the HTML
-var submitButton = document.getElementById("submit");
+var optionsElement = document.getElementById("choicesUl"); // Updated to match HTML
+var submitButton = document.getElementById("submit-btn"); // Updated to match HTML
 var scoreContainer = document.getElementById("score-container");
 var timerElement = document.getElementById("timer");
 var nextButton = document.getElementById("next"); // Added "Next" button
+var viewScoresButton = document.getElementById("view-scores"); // Added "View High Scores" button
 
 var currentQuestionIndex = 0;
 var score = 0;
@@ -21,7 +22,7 @@ var questions = [
         "2: <script>",
         "3: <header>"
       ],
-      correctAnswer: 1 // Index of the correct option (2: <script>)
+      correctAnswer: '2'
     },
     {
       question: "How do you add a comment in JavaScript?",
@@ -30,7 +31,7 @@ var questions = [
         "2: add comment",
         "3: !add comment"
       ],
-      correctAnswer: 0 // Index of the correct option (1: //add comment)
+      correctAnswer: '1'
     },
     {
       question: "Java and JavaScript are the same",
@@ -38,7 +39,7 @@ var questions = [
         "1: True",
         "2: False"
       ],
-      correctAnswer: 1 // Index of the correct option (2: False)
+      correctAnswer: '2'
     },
     {
       question: "Which event occurs when the user clicks on an HTML element?",
@@ -47,7 +48,7 @@ var questions = [
         "2: onpush",
         "3: onclick"
       ],
-      correctAnswer: 2 // Index of the correct option (3: onclick)
+      correctAnswer: '3'
     },
     {
       question: "What does the acronym 'DOM' stand for in JavaScript?",
@@ -57,32 +58,27 @@ var questions = [
         "3: Data Oriented Module",
         "4: Digital Output Method"
       ],
-      correctAnswer: 1 // Index of the correct option (2: Document Object Model)
+      correctAnswer: '1'
     },
     {
       question: "Which keyword is used to declare a variable in JavaScript?",
       options: ["1: new", "2: var", "3: let", "4: const"],
-      correctAnswer: 1 // Index of the correct option (2: var)
+      correctAnswer: '1'
     },
     {
       question: "What is the purpose of the 'addEventListener' method in JavaScript?",
       options: [
-        "1: To modify the style of an element",
-        "2: To create a new HTML element",
-        "3: To add an event handler to an element",
-        "4: To perform mathematical calculations"
+        "To modify the style of an element",
+        "To create a new HTML element",
+        "To add an event handler to an element",
+        "To perform mathematical calculations"
       ],
-      correctAnswer: 2 // Index of the correct option (3: To add an event handler to an element)
-    },
-    {
-      question: "Which symbol is used for single-line comments in JavaScript?",
-      options: ["1: //", "2: ##", "3: --", "4: /* */"],
-      correctAnswer: 0 // Index of the correct option (1: //)
+      correctAnswer: '2'
     },
     {
       question: "What is the result of the following expression: '5' + 2?",
-      options: ["1: 7", "2: 52", "3: 3", "4: '52'"],
-      correctAnswer: 3 // Index of the correct option (4: '52')
+      options: ["7", "52", "3", "'52'"],
+      correctAnswer: '3'
     },
     {
       question: "What is the purpose of the 'setTimeout' function in JavaScript?",
@@ -92,7 +88,7 @@ var questions = [
         "3: To perform an asynchronous network request",
         "4: To define a loop in the code"
       ],
-      correctAnswer: 1 // Index of the correct option (1: To stop the execution of the script)
+      correctAnswer: '1'
     },
   ];
 
@@ -175,5 +171,56 @@ function endQuiz() {
     QuizContainer.classList.add("hide");
     scoreContainer.textContent = "Your Score: " + score;
     scoreContainer.classList.remove("hide");
+
+    // Save the high score
+    saveHighScore(score);
+
+    // Display high scores
+    displayHighScores();
 }
 
+// Function to save high score
+function saveHighScore(score) {
+    // Check if high scores already exist in local storage
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+    // Create a new high score entry
+    var newScore = {
+        score: score,
+        date: new Date().toLocaleString(),
+    };
+
+    // Add the new score to the array
+    highScores.push(newScore);
+
+    // Sort the high scores in descending order
+    highScores.sort((a, b) => b.score - a.score);
+
+    // Store the high scores in local storage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+// Function to display high scores
+function displayHighScores() {
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+    // Create a list of high scores
+    var highScoresList = document.createElement("ol");
+
+    for (var i = 0; i < highScores.length; i++) {
+        var scoreItem = document.createElement("li");
+        scoreItem.textContent = highScores[i].score + " - " + highScores[i].date;
+        highScoresList.appendChild(scoreItem);
+    }
+
+    // Display the high scores
+    var resultsElement = document.getElementById("results");
+    resultsElement.innerHTML = "<h2>High Scores</h2>";
+    resultsElement.appendChild(highScoresList);
+    resultsElement.classList.remove("hide");
+}
+
+// Add an event listener to the "View High Scores" button
+viewScoresButton.addEventListener("click", function () {
+    displayHighScores();
+});
