@@ -44,3 +44,18 @@ body{
 #start:hover{
 	background-color: paleturquoise;
 }
+
+#next{
+	font-family: monospace;
+	font-size: 20px;
+	background-color: turquoise;
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+#next:hover{
+	background-color: paleturquoise;
+}

@@ -12,7 +12,7 @@ This is a simple web page URL. Deploying the link should allow you to arrive at 
 
 ## Usage
 
-This webpage is intended for users to play a coding game that will subract time if they get wrong answers. 
+This webpage is intended for users to play a coding game that will subtract time if they get wrong answers. 
 
 
 
