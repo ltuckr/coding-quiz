@@ -1,5 +1,5 @@
 # coding-quiz
-An online coding quiz comprised of html, css and js.
+A timed online coding quiz comprised of html, css and js.
 
 
 
@@ -12,17 +12,17 @@ This is a simple web page URL. Deploying the link should allow you to arrive at 
 
 ## Usage
 
-This webpage is intended for users to play a coding game that will subtract time if they get wrong answers. 
+This webpage is intended for users to participate in a timed coding quiz to help them learn the basics of coding. For additional fun, time is detracted if wrong answers are given. 
 
 
 
 
 # credits
 Our class mini-project, from week 4.
-https://stackoverflow.com/questions/26801470/set-font-size-to-header-elements-inside-div
-https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
-https://simplestepscode.com/javascript-quiz-tutorial
-https://www.w3schools.com/howto/howto_js_countdown.asp
-https://www.w3schools.com/jsref/prop_html_innerhtml.asp
-https://www.w3schools.com/js/js_quiz.asp (for question content)
+- https://stackoverflow.com/questions/26801470/set-font-size-to-header-elements-inside-div
+- https://www.w3schools.com/quiztest/quiztest.asp?qtest=JS
+- https://simplestepscode.com/javascript-quiz-tutorial
+- https://www.w3schools.com/howto/howto_js_countdown.asp
+- https://www.w3schools.com/jsref/prop_html_innerhtml.asp
+- https://www.w3schools.com/js/js_quiz.asp (for question content)
 
