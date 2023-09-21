@@ -4,50 +4,48 @@
     <title>Coding Quiz</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="assets\style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/style.css" /> 
+   
   </head>
 
-
   <body>
-
-    <!--Heading and general directions-->
+    <!-- Heading and general directions -->
     <header>
       <h1>Coding Quizlet</h1>
-      <h3>Get ready! You're being timed! A correct answer will increase your timer, but an incorrect one will decrease it.</h3>
+      <h3>
+        Get ready! You're being timed! A correct answer will increase your timer, but an incorrect one will decrease it.
+      </h3>
     </header>
 
-<main>
+    <main>
+      <!-- This is some space -->
+      <pre></pre>
 
- <!--This is some space -->
-  <pre>
-  </pre>
+      <!-- Start button -->
+      <button id="start">Start</button>
 
-<button id="start">Start</button>
+      <!-- Timer -->
+      <div id="currentTime"></div>
 
-    <!-- Div timer -->
-  <div id="currentTime"></div>
-    <!-- quiz content -->
-  <div id="questionsDiv">
+      <!-- Quiz content container -->
+      <div id="quiz-container" class="hide">
+        <!-- Question and options -->
+        <div id="question"></div>
+        <ul id="choicesUl"></ul>
 
-    <ul id="choicesUl"></ul>
-    
-<div id="quiz"></div>
+        <!-- Next button -->
+        <button id="next">Next</button>
 
-<button id="next">Next</button>
+        <!-- Submit button -->
+        <button id="submit">Get Results</button>
 
-<button id="submit">Get Results</button>
+        <!-- Results container (hidden initially) -->
+        <div id="results" class="hide"></div>
+      </div>
 
-<div id="results"></div>
-
-
-<pre>
-  
-</pre>
-<!--storage access link for high scores-->
-
-<a href="HighScores.html">View High Scores</a>
-
-</main>
-<script src="assets\script.js"></script>
-</body>
+      <!-- Storage access link for high scores -->
+      <a href="HighScores.html">View High Scores</a>
+    </main>
+    <script src="assets/script.js"></script>
+  </body>
 </html>

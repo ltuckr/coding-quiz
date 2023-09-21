@@ -1,4 +1,4 @@
-var startButton = document.getElementById("start"); //changed to "start" button
+var startButton = document.getElementById("start"); //changed to "Start" button
 var QuizContainer = document.getElementById("quiz-container");
 var questionElement = document.getElementById("question");
 var optionsElement = document.getElementById("options");
